@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this verification artifact, please cite it and the associated paper."
+title: "Exact self-testing of the three-qubit W state: verification artifact"
+type: software
+authors:
+  - family-names: Han
+    given-names: Yunguang
+  - family-names: Bu
+    given-names: Xingyuan
+  - family-names: Kuang
+    given-names: Xin
+  - family-names: Li
+    given-names: Dan
+    email: lidansusu007@163.com
+repository-code: "https://github.com/brant-fudan/exact-self-testing-w-state"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-14
