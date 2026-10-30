@@ -1,0 +1,11 @@
+No floating-point atoms. Basis: 55 words; real adjoint/permutation quotient: 110 coordinates.
+Affine constraints: 28 generated quotient rows, 24 stored rows, all ranks 24.
+Ideal action matrix: rank 8; R is the canonical 55 x 47 nullspace basis.
+Gram-adjoint map reconstructed independently from ordered words and R.
+Exact identities A^T lambda+B s=c and b^T lambda=sqrt(2): VERIFIED in Q(sqrt(2)).
+Branch alignment: RT=L exactly; the sum of three squared relations is permutation invariant.
+S: certified ||P^T M P-I||_infinity < 0.000000129640 < 1/1000000.
+S-T T^T/2: certified ||P^T M P-I||_infinity < 0.000000123873 < 1/1000000.
+Residual constants: C_epsilon < 4440.3221053943 < 4441; C_delta < 740.8693470720 < 741.
+For Delta=0: C_epsilon < 1128.0699253943 < 1129.
+FULL REVISED CERTIFICATE AND ROBUSTNESS CONSTANTS VERIFIED.

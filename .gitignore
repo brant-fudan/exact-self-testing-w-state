@@ -2,3 +2,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .pytest_cache/
+
+# Numerical re-solves and environments
+numerical_swap/recomputed/
+.venv/

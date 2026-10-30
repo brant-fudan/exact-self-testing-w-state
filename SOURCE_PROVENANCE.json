@@ -1,0 +1,19 @@
+{
+  "original_source_files": {
+    "w_swap_robustness(1).py": "7777e2c018b1a2e5fcd1df02df06cfbf5e02de97b89d82b8bcd86201f02061e7",
+    "plot_w_swap_robustness(1).py": "249b84f62b4800f0d2ba8dedc91f3167adf84ff37d9f1d0ca88a62d9682f008c",
+    "all_curves.csv": "ea55f40f6c8fc014f7301278cdbb90e893bbd4d19ebbe766658b6627a1a3e8d8",
+    "exact-self-testing-w-state-main.zip": "ce67a65cf193d35845e33cf3156e0dac3ee88cebd13616525df92eb17cdf5e36",
+    "PHYLA_D_26_02336_Supplemental_Data_AppendixD(3).zip": "2b3db072ba855461d640eb44a63d6fb7559bc38d6df27e569685c60dc1a0af13"
+  },
+  "packaged_solver_script_sha256": "85d276e3bc7a47b67c4e3165f792a79f97ad1dd3568aa7872d903f13f78d16dc",
+  "archived_points": 48,
+  "groups": {
+    "marginal_box": 12,
+    "marginal_white": 12,
+    "joint_box": 12,
+    "joint_white": 12
+  },
+  "raw_point_level_sdp_archive_provided": false,
+  "full_numerical_solve_executed_during_packaging": false
+}

@@ -1,0 +1,2 @@
+ARCHIVED NUMERICAL RESULTS CHECKED: 48 points, four groups; all declared diagnostics pass.
+NOTE: these are numerical checks, not an exact numerical SDP certificate.
