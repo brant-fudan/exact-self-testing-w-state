@@ -1,0 +1,13 @@
+{
+  "input_sha256": {
+    "numerical_swap/results/marginal_box/curve.csv": "703892bb3ee3fe9fa1c5c5515bc8e58cdb87b4a3bb23c15fa1d2962824a5b811",
+    "numerical_swap/results/marginal_white/curve.csv": "1f28f603917b1ccbaed0e4bb6864d58dcb558b0aff3250747f1e120da444ff2d",
+    "numerical_swap/results/joint_box/curve.csv": "38a04a5dcfa182ffadab79332cee13eea49f918043cd79fd9a0c6165e81fb686",
+    "numerical_swap/results/joint_white/curve.csv": "290872e2131f7a85f20cc41a44d636a2df7101ecdc85fe70ad4efe9769ab5942"
+  },
+  "plot_source_sha256": "249b84f62b4800f0d2ba8dedc91f3167adf84ff37d9f1d0ca88a62d9682f008c",
+  "value_column": "numerical_lower_bound",
+  "interpolation": "none; straight guides only",
+  "ideal_endpoint": "exact theorem, separate star; not overwritten numerical data",
+  "diagnostics_required": true
+}

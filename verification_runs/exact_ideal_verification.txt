@@ -1,0 +1,11 @@
+Loaded certificate: /mnt/data/_w_state_supplemental_build/PHYLA_D_26_02336_Complete_Supplemental_Code/exact_ideal/certificate/w_exact_certificate.json
+No floating-point atoms in exact certificate entries: OK
+Basis and quotient moments: OK (55 words, 110 orbit variables)
+Affine system: OK (24 stored rows span 28 generated quotient rows; rank 24)
+Objective vector: OK
+Gram-adjoint map Bmat rebuilt exactly from R and basis: OK
+Affine dual identity and objective b^T lambda = sqrt(2): exact OK
+Gram matrix S >> 0 by exact Gershgorin bound: OK; row bound = 34921266062290753573078799113322296984616409747339777711322088281739905586916347135679454513511878324965611749/31758364852174319040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Ideal W nullspace: exact OK (rank V = 8, rank R = 47)
+E_Q and E_Q X_Q target vectors lie in colspace(R): exact OK
+FULL CERTIFICATE VERIFIED.

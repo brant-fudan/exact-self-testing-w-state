@@ -1,76 +1,68 @@
 # Exact self-testing of the three-qubit W state
 
-This repository contains the exact certificate and standalone verifier for the
-computer-assisted step in the strict marginal self-test of the three-qubit
-W state. The associated theorem uses only the complete ideal one- and two-body
-marginal behavior of the local observables `Z`, `X`, and
-`D = (Z + X) / sqrt(2)`.
+This repository accompanies *Exact Self-Testing of the Three-Qubit W State from Marginal Correlations* (Physics Letters A manuscript PHYLA-D-26-02336, revision R1). The `main` branch contains the exact ideal-point certificate, the revised analytic robustness certificate, and finite-noise SWAP/NPA computation code and data.
 
-The verifier establishes the exact level-2 moment-matrix bound
-
-```text
-u_bar >= sqrt(2)
-```
-
-over `Q(sqrt(2))`. It does not contain certificate-discovery code, numerical
-SDP searches, manuscript files, the incomplete certificate-free route, or the
-separate joint-data `[2,2,2]` theorem.
+The self-testing result concerns the complete ideal one- and two-body marginal behavior of three binary settings `Z`, `X`, and `D` per party. No three-body correlator is required by the marginal self-test. A separate two-setting scenario with a three-body correlator is included only as a numerical comparison.
 
 ## Contents
 
-- `certificate/w_exact_certificate.json`: exact certificate data over
-  `Q(sqrt(2))`;
-- `verifier/verify_certificate.py`: standalone full verifier;
-- `verifier/certificate_io.py`: decoder for the language-neutral JSON format;
-- `SHA256SUMS.txt`: integrity manifest for the release files.
+| Location | Purpose | Evidence |
+|---|---|---|
+| `certificate/` and `verifier/` | Original ideal-point level-2 certificate and standalone verifier | Exact algebra over `Q(sqrt(2))` |
+| `robustness/` | Revised Gram certificate, branch-alignment domination and robustness constants | Exact algebra and rational positivity checks |
+| `numerical_swap/src/` | Finite-level SWAP/NPA solver, plotting and archived-data checks | Numerical optimization |
+| `numerical_swap/results/` | 48 archived fidelity estimates, grouped data and figures | Floating-point numerical estimates |
+| `verification_runs/` | Logs from checks performed for the supplementary package | Recorded checks |
+| `SOURCE_PROVENANCE.json` and `MANIFEST_SHA256.txt` | Source provenance and content-integrity manifest | File provenance |
 
-## Requirements
+The original `certificate/`, `verifier/`, `CITATION.cff`, and `SHA256SUMS.txt` remain available at their established paths. The revised certificate in `robustness/` is distinct from the original ideal-point certificate.
 
-- Python 3.11;
-- SymPy 1.13.1.
+## Verify the exact certificates
 
-Install the pinned dependency with
+Python 3.11 and SymPy 1.13.1 are the pinned dependencies for the exact checkers.
 
 ```bash
 python -m pip install -r requirements.txt
+python verifier/verify_certificate.py
+python robustness/verification/verify_revision.py
 ```
 
-MOSEK and other SDP solvers are not required.
+The original checker verifies the 55-word basis, reduced affine constraints, the scalar bound `u_bar >= sqrt(2)`, Gram positivity and the ideal W nullspace. The revised checker also verifies the exact branch-alignment Gram domination and the constants appearing in the analytic robustness bound.
 
-## Verification
-
-From the repository root, run
+Run the combined checks from the repository root:
 
 ```bash
-python verifier/verify_certificate.py
+python verify_all.py
 ```
 
-The verifier independently reconstructs and checks:
+This command checks the two exact certificates and performs a consistency check of the archived numerical CSV. It does not re-solve the numerical SDPs.
 
-1. the absence of floating-point atoms;
-2. the 55-word level-2 basis and 110 real adjoint-orbit coordinates;
-3. equivalence of the stored and generated affine constraint spaces;
-4. the Gram-adjoint map;
-5. the exact dual identity and objective value over `Q(sqrt(2))`;
-6. positive definiteness of the Gram matrix by rational interval arithmetic
-   and Gershgorin's theorem;
-7. the ideal W-state nullspace;
-8. containment of the target relation vectors in the certificate column
-   space.
+## Numerical SWAP/NPA results
 
-A successful run ends with
+The marginal protocol uses all 36 one- and two-body moments of `Z`, `X`, and `D`. The two numerical noise models are (i) componentwise absolute-error boxes and (ii) a specified white-noise path. The comparison `joint` protocol uses a three-body correlator, so it makes different observational assumptions.
 
-```text
-FULL CERTIFICATE VERIFIED.
+The 48 archived points are in `numerical_swap/results/all_curves.csv`, and the plotted figures are under `numerical_swap/results/figures/`. To check the archived table and reproduce the plots:
+
+```bash
+python numerical_swap/src/verify_archived_curves.py
+python numerical_swap/src/plot_w_swap_robustness.py --results numerical_swap/results
 ```
 
-## Scope
+For new numerical optimizations, install compatible versions of the packages in `numerical_swap/requirements_numerical.txt` and configure a MOSEK license. For example:
 
-The certificate supplies one scalar lower bound in the proof. The remaining
-state-dependent rigidity argument and local-isometry extraction are analytic.
-The repository does not claim a finite-noise robustness theorem or a global
-self-test of the measurement operators.
+```bash
+python numerical_swap/src/w_swap_robustness.py --protocol marginal --model box --output-dir numerical_swap/recomputed/marginal_box
+python numerical_swap/src/w_swap_robustness.py --protocol marginal --model white --output-dir numerical_swap/recomputed/marginal_white
+```
 
-## License
+The solver writes per-point matrices, logs, and diagnostic files to the selected new output directory. The archived CSV consists of floating-point, dual-residual-adjusted estimates: it is not an exact or interval-certified SDP proof. Original point-by-point MOSEK matrices and logs were not included in the supplied archive; fresh runs can generate those files. See `numerical_swap/results/RESULTS_SCOPE.md` and `numerical_swap/NUMERICAL_SOURCE_NOTES.md` for details.
 
-The verification code is released under the MIT License.
+## Integrity and credit
+
+To check the manifest from the repository root:
+
+```bash
+sha256sum -c MANIFEST_SHA256.txt
+```
+
+The original ideal-point software authorship and license information is preserved in `CITATION.cff` and `LICENSE`. The associated paper has its own author list. The manuscript's full mathematical proof, assumptions and exact formulas are in the article; the repository provides the machine-readable certificates and research code supporting those claims.

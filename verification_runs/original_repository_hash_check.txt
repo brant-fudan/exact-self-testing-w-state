@@ -1,0 +1,7 @@
+README.md: OK
+requirements.txt: OK
+LICENSE: OK
+CITATION.cff: OK
+certificate/w_exact_certificate.json: OK
+verifier/certificate_io.py: OK
+verifier/verify_certificate.py: OK
